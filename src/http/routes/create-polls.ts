@@ -14,12 +14,17 @@ export async function createPoll(app: FastifyInstance) {
        const poll = await prisma.poll.create({
             data: {
                 title: title,
-                
+                options: {
+                    createMany:{
+                        data: options.map(option => {
+                            return({ title: option })
+                        })
+                    }
+                }
             }
         })
 
-
-
+       
 
     
         return reply.status(201).send({ pollId: poll.id })
