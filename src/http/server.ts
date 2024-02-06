@@ -1,34 +1,11 @@
 import fastify from "fastify"
-import { PrismaClient} from "@prisma/client"
-import { z } from "zod"
+import { createPoll } from "./routes/create-polls"
 
 const app = fastify()
-const prisma = new PrismaClient()
 
-app.post("/polls", async (request, reply) => {
-    const createPollBody = z.object({
-        title: z.string()
-    })
+app.register(createPoll)
 
-    const {title} = createPollBody.parse(request.body)
-
-   const poll = await prisma.poll.create({
-        data: {
-            title: title
-        }
-    })
-
-    return reply.status(201).send({ pollId: poll.id })
-})
 
 app.listen({ port: 3333 }).then(() => {
     console.log("Http Server running")
 })
-
-
-/**
- * 
- * ORM é coisa de baitola que n sabe programar
- * brinks orm são facilitadores de sql que permitem operações mais rapidas
- * 
- */
