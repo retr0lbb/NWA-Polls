@@ -1,0 +1,22 @@
+{
+  "name": "rocket-voter",
+  "version": "1.0.0",
+  "description": "for nlwweek is a voter that you can vote on things",
+  "main": "index.js",
+  "author": "retr0lbb",
+  "license": "MIT",
+  "scripts": {
+    "dev": "tsx watch src/http/server.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.16",
+    "prisma": "^5.9.1",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.9.1",
+    "fastify": "^4.26.0",
+    "zod": "^3.22.4"
+  }
+}
