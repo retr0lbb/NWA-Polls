@@ -7,7 +7,10 @@ import webSocket from "@fastify/websocket";
 import { pollResults } from "./ws/poll-results";
 import { getAllPoll } from "./routes/get-all-polls";
 import cors from "@fastify/cors";
+import axios from "axios";
 import "dotenv/config"
+
+axios.defaults.withCredentials = true
 
 const app = fastify();
 app.register(cors, {

@@ -12,7 +12,9 @@ const websocket_1 = __importDefault(require("@fastify/websocket"));
 const poll_results_1 = require("./ws/poll-results");
 const get_all_polls_1 = require("./routes/get-all-polls");
 const cors_1 = __importDefault(require("@fastify/cors"));
+const axios_1 = __importDefault(require("axios"));
 require("dotenv/config");
+axios_1.default.defaults.withCredentials = true;
 const app = (0, fastify_1.default)();
 app.register(cors_1.default, {
     origin: 'http://localhost:5173', // just my front man >:3
