@@ -16,7 +16,7 @@ const app = fastify();
 app.register(cors, {
     origin: 'http://localhost:5173', // just my front man >:3
     methods: ['GET', 'PUT', 'POST', 'DELETE'],
-    allowedHeaders: ['Content-Type'],
+    allowedHeaders: ['Content-Type', "Access-Control-Allow-Origin"],
     credentials: true // just add this to work without http client 0w0 
 });
 app.register(cookie, {
@@ -32,7 +32,7 @@ app.register(voteOnPoll);
 app.register(pollResults);
 
 app.get("/",(request, reply) => {
-    reply.send({message: "Bem Vindo a api"})
+    reply.send({message: "Bem Vindo a api 2"})
 })
 
 app.listen({ port: 3333 }).then(() => {
