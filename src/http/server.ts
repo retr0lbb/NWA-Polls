@@ -6,7 +6,6 @@ import { voteOnPoll } from "./routes/vote-on-poll";
 import webSocket from "@fastify/websocket";
 import { pollResults } from "./ws/poll-results";
 import { getAllPoll } from "./routes/get-all-polls";
-import { redis } from "../lib/redis";
 import cors from "@fastify/cors";
 import "dotenv/config"
 
@@ -28,6 +27,10 @@ app.register(createPoll);
 app.register(getPoll);
 app.register(voteOnPoll);
 app.register(pollResults);
+
+app.get("/",(request, reply) => {
+    reply.send({message: "Bem Vindo a api"})
+})
 
 app.listen({ port: 3333 }).then(() => {
     console.log("Http Server running");

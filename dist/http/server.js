@@ -30,6 +30,9 @@ app.register(create_polls_1.createPoll);
 app.register(ger_polls_1.getPoll);
 app.register(vote_on_poll_1.voteOnPoll);
 app.register(poll_results_1.pollResults);
+app.get("/", (request, reply) => {
+    reply.send({ message: "Bem Vindo a api" });
+});
 app.listen({ port: 3333 }).then(() => {
     console.log("Http Server running");
 });
