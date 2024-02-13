@@ -2,7 +2,7 @@
   "name": "rocket-voter",
   "version": "1.0.0",
   "description": "for nlwweek is a voter that you can vote on things",
-  "main": "dist/http/server.js",
+  "main": "src/http/server.ts",
   "author": "retr0lbb",
   "license": "MIT",
   "scripts": {
