@@ -18,14 +18,17 @@ export async function voteOnPoll(app: FastifyInstance) {
         const { pollOptionId } = voteOnPollBody.parse(request.body);
 
         let { sessionId } = request.cookies;
+        console.log(request.cookies)
         if (!sessionId) {
             sessionId = randomUUID();
+
+            console.log("generated Set id ", sessionId)
 
             reply.setCookie("sessionId", sessionId, {
                 path: "/",
                 maxAge: 60 * 60 * 24 * 30, // ten years
                 signed: true,
-                httpOnly: true
+                httpOnly: false
             });
         }
         if(sessionId){

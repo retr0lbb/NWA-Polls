@@ -6,14 +6,16 @@ import { voteOnPoll } from "./routes/vote-on-poll";
 import webSocket from "@fastify/websocket";
 import { pollResults } from "./ws/poll-results";
 import { getAllPoll } from "./routes/get-all-polls";
+import { redis } from "../lib/redis";
 import cors from "@fastify/cors";
 import "dotenv/config"
 
 const app = fastify();
 app.register(cors, {
-    origin: '*',
+    origin: 'http://localhost:5173', // just my front man >:3
     methods: ['GET', 'PUT', 'POST', 'DELETE'],
     allowedHeaders: ['Content-Type'],
+    credentials: true // just add this to work without http client 0w0 
 });
 app.register(cookie, {
     secret: process.env.COOKIE_SECRETE,

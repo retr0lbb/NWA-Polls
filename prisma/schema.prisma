@@ -32,6 +32,7 @@ model Test {
   name String @id @default(uuid())
   jest String
   lest String
+  memz String
 }
 
 model vote {

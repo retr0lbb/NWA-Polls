@@ -1,6 +1,6 @@
 import { FastifyInstance } from "fastify";
 import { prisma } from "../../lib/prisma"
-import { object, z } from "zod"
+import { z } from "zod"
 import { redis } from "../../lib/redis";
 
 export async function getPoll(app: FastifyInstance) {
@@ -29,7 +29,6 @@ export async function getPoll(app: FastifyInstance) {
         if(!poll){
             return res.status(404).send({message: "Poll no found. "})
         }
-
 
         const result = await redis.zrange(pollId, 0, -1, "WITHSCORES")
 
