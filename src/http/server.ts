@@ -14,7 +14,7 @@ axios.defaults.withCredentials = true
 
 const app = fastify();
 app.register(cors, {
-    origin: 'http://localhost:5173', // just my front man >:3
+    origin: 'https://vote-now-flame.vercel.app', // just my front man >:3
     methods: ['GET', 'PUT', 'POST', 'DELETE'],
     allowedHeaders: ['Content-Type', "Access-Control-Allow-Origin"],
     credentials: true // just add this to work without http client 0w0 
