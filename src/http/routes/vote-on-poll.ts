@@ -30,7 +30,7 @@ export async function voteOnPoll(app: FastifyInstance) {
                 signed: true,
                 httpOnly: true,
                 sameSite: "none",
-                domain: "http://localhost:5173"
+                secure: true
             });
         }
         if(sessionId){
