@@ -18,6 +18,7 @@ app.register(cors, {
     methods: ['GET', 'PUT', 'POST', 'DELETE'],
     allowedHeaders: ['Content-Type', "Access-Control-Allow-Origin"],
     credentials: true // just add this to work without http client 0w0 
+    
 });
 app.register(cookie, {
     secret: process.env.COOKIE_SECRETE,
